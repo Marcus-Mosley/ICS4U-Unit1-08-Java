@@ -48,9 +48,9 @@ public class Array {
 
     Random rand = new Random();
     System.out.printf("The random numbers are: ");
-    for (int counter = 0; counter < 10; counter++) {
+    for (int counter = 0; counter < random.length; counter++) {
       int randomNumber = 1 + rand.nextInt(99);
-      if (counter == 9) {
+      if (counter == random.length - 1) {
         System.out.println(randomNumber);
       } else {
         System.out.printf(randomNumber + ", ");
