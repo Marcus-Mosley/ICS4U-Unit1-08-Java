@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
 * The Array program implements an application that
-* outputs an the min and max numbers of a random array.
+* outputs the min and max numbers of a random array.
 *
 * @author  Marcus A. Mosley
 * @version 1.0
