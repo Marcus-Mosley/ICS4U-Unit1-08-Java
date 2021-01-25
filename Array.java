@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
 * The Array program implements an application that
-* outputs an array of 10 random numbers.
+* outputs an the min and max numbers of a random array.
 *
 * @author  Marcus A. Mosley
 * @version 1.0
@@ -11,66 +11,56 @@ import java.util.Scanner;
 */
 public class Array {
   /**
-  * The RandArray method returns the array of 10
-  * numbers with the specified restrictions.
+  * The minArray method returns the min
+  * number in the random Array.
   */
-  public static int[] randArray(int maxValue, int minValue) {
-    int counter;
-    int[] random = new int[10];
-    Random rand = new Random();
+  public static int minArray(int[] random) {
+    int min = random[0];
 
-    for (counter = 0; counter < 10; counter++) {
-      int randomNumber = minValue + rand.nextInt(maxValue - minValue + 1);
-      random[counter] = randomNumber;
+    for (int counter = 0; counter < random.length; counter++) {
+      if (random[counter] < min) {
+        min = random[counter];
+      }
     }
-
-    return random;
+    return min;
   }
 
   /**
-  * The Main method receives input and checks viability.
+  * The maxArray method returns the max
+  * number in the random Array.
+  */
+  public static int maxArray(int[] random) {
+    int max = random[0];
+
+    for (int counter = 0; counter < random.length; counter++) {
+      if (random[counter] > max) {
+        max = random[counter];
+      }
+    }
+    return max;
+  }
+
+  /**
+  * The Main method creates the random array.
   */
   public static void main(String[] args) {
-    int maxValue = 0;
-    int minValue = 0;
-    int[] random;
+    int[] random = new int[10];
 
-    while (true) {
-      try {
-        // Input
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a min value: ");
-        minValue = input.nextInt();
-        if (minValue > 0) {
-          break;
-        } else {
-          System.out.printf("That is not a valid input! \n");
-        }
-      } catch (Exception e) {
-        System.out.printf("That is not a number, please input a number! \n");
-      }
-    }
-    while (true) {
-      try {
-        // Input
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a max value: ");
-        maxValue = input.nextInt();
-        if (maxValue > minValue) {
-          break;
-        } else {
-          System.out.printf("That is not a valid input! \n");
-        }
-      } catch (Exception e) {
-        System.out.printf("That is not a number, please input a number! \n");
-      }
-    }
-
-    random = randArray(maxValue, minValue);
-
+    Random rand = new Random();
     System.out.printf("The random numbers are: ");
-    for (int count = 0; count < random.length; count++) {
-      System.out.printf(random[count] + ", ");
+    for (int counter = 0; counter < 10; counter++) {
+      int randomNumber = 1 + rand.nextInt(99);
+      if (counter == 9) {
+        System.out.println(randomNumber);
+      } else {
+        System.out.printf(randomNumber + ", ");
+      }
+      random[counter] = randomNumber;
     }
+
+    int min = minArray(random);
+    int max = maxArray(random);
+
+    System.out.printf("The Min is " + min + " and the Max is " + max);
   }
 }
