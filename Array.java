@@ -15,9 +15,9 @@ public class Array {
   * numbers with the specified restrictions.
   */
   public static int[] randArray(int maxValue, int minValue) {
-    Random rand = new Random();
     int counter;
     int[] random = new int[10];
+    Random rand = new Random();
 
     for (counter = 0; counter < 10; counter++) {
       int randomNumber = minValue + rand.nextInt(maxValue - minValue + 1);
